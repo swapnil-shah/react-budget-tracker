@@ -1,10 +1,29 @@
-import "./styles.css";
-
-export default function App() {
+import { Container, Stack, Button } from "react-bootstrap";
+import BudgetCard from "./components/BudgetCard";
+function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <Container>
+      <Stack direction="horizontal" gap="2" className="mb-4">
+        <h1 className="me-auto">Budgets</h1>
+        <Button variant="primary">Add Budgets</Button>
+        <Button variant="outline-primary">Add Expense</Button>
+      </Stack>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill,minmax(300fr, 1fr))",
+          gap: "1rem",
+          alignItems: "flex-start"
+        }}
+      >
+        <BudgetCard
+          name="Entertainment"
+          amount={200}
+          max={2000}
+          gray
+        ></BudgetCard>
+      </div>
+    </Container>
   );
 }
+export default App;
